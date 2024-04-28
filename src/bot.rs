@@ -66,7 +66,7 @@ impl EventHandler for Bot {
                     }
                 }
                 Err(e) => {
-                    error!("Failed to generate response: {}", e.clone());
+                    error!("Failed to generate response: {}", e);
                     msg.reply(&ctx.http, format!("Failed to generate response: {}", e)).await.unwrap();
                 }
             }
