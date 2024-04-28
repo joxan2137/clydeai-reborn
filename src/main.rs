@@ -1,5 +1,4 @@
 mod bot;
-mod openai;
 
 use serenity::prelude::*;
 use shuttle_secrets::SecretStore;
