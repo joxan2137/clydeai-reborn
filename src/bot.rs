@@ -22,7 +22,7 @@ impl EventHandler for Bot {
                 }
                 Err(e) => {
                     error!("Failed to generate response: {}", e);
-                    if let Err(why) = msg.channel_id.say(&ctx.http, &e).await {
+                    if let Err(why) = msg.reply(&ctx.http, &e).await {
                         error!("Error sending message: {why:?}");
                     }
                 }
