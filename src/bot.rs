@@ -1,3 +1,4 @@
+use serenity::all::ActivityData;
 use serenity::async_trait;
 use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;
@@ -31,6 +32,6 @@ impl EventHandler for Bot {
 
     async fn ready(&self, ctx: Context, ready: Ready) {
         info!("{} is connected!", ready.user.name);
-        ctx.set_activity(serenity::model::gateway::Activity::watching("out for the opps")).await;
+        ctx.set_activity(Some(ActivityData::watching("out for humans")));
     }
 }
