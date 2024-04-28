@@ -10,10 +10,9 @@ pub struct Bot;
 #[async_trait]
 impl EventHandler for Bot {
     async fn message(&self, ctx: Context, msg: Message) {
-        if msg.mentions_me(&ctx.http).await.unwrap() || msg.content.contains("@Clyde") {
+        if msg.mentions_me(&ctx.http).await.unwrap() || msg.content.contains("@Clyde"){
             info!("Request sent. From: {}. Content: {}", msg.author.name, msg.content);
             let prompt = msg.content.replace("<@1233458195960172605>", "");
-
             match openai::generate_response(&prompt).await {
                 Ok(response) => {
                     if let Err(why) = msg.channel_id.say(&ctx.http, &response).await {
@@ -30,7 +29,8 @@ impl EventHandler for Bot {
         }
     }
 
-    async fn ready(&self, _: Context, ready: Ready) {
+    async fn ready(&self, ctx: Context, ready: Ready) {
         info!("{} is connected!", ready.user.name);
+        ctx.set_activity(serenity::model::gateway::Activity::watching("out for the opps")).await;
     }
 }
