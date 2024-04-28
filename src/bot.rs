@@ -1,5 +1,3 @@
-
-use async_openai::Client as OpenAIClient;
 use serenity::async_trait;
 use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;

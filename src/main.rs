@@ -5,8 +5,6 @@ use serenity::prelude::*;
 use shuttle_secrets::SecretStore;
 use shuttle_serenity::{SerenityService, ShuttleSerenity};
 
-struct Bot;
-
 #[shuttle_runtime::main]
 async fn serenity(
     #[shuttle_runtime::Secrets] secret_store: SecretStore,

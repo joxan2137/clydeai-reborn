@@ -28,7 +28,7 @@ pub async fn generate_response(prompt: &str) -> Result<String, String> {
         Err(e) => {
             error!("Failed to get response: {}", e);
             if e.to_string().contains("quota") {
-                Err("The developer stopped paying for the API, so I can't respond anymore.".to_string())
+                Err("ten pedal <@796810239638634496> nie zaplacil mi wiec sie pierdol nie pracuje za darmo.".to_string())
             } else {
                 Err(format!("Failed to get response: {}", e))
             }
